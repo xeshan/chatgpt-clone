@@ -39,4 +39,5 @@ def openai_api(prompt):
     chatbot = gr.Chatbot()
     message = gr.Textbox(placeholder=prompt)
     state = gr.State()
-    
+    submit = gr.Button("SEND")
+    submit.click(chat, inputs= [message, state], outputs=[chatbot, state])
