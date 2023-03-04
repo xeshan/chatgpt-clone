@@ -31,3 +31,8 @@ def openai_api(prompt):
     output = openai_create(inpt)
     history.append((input, output))
     return history, history
+
+  block = gr.Blocks()
+
+  with block:
+    gr.Markdown("ChatGPT clone with OpenAI and Gradio")
