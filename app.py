@@ -21,3 +21,12 @@ def openai_api(prompt):
   )
 
   return response.choices[0].text
+
+  def chat(input, history):
+    history = history or []
+    s = list(sum(history, ()))
+    s.append(input)
+    inp = ' '.join(s)
+    output = openai_create(inp)
+    history.append((input, output))
+    return history, history
