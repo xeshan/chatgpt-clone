@@ -32,12 +32,14 @@ def openai_api(prompt):
     history.append((input, output))
     return history, history
 
-  block = gr.Blocks()
+block = gr.Blocks()
 
-  with block:
-    gr.Markdown("ChatGPT clone with OpenAI and Gradio")
-    chatbot = gr.Chatbot()
-    message = gr.Textbox(placeholder=prompt)
-    state = gr.State()
-    submit = gr.Button("SEND")
-    submit.click(chat, inputs= [message, state], outputs=[chatbot, state])
+with block:
+  gr.Markdown("ChatGPT clone with OpenAI and Gradio")
+  chatbot = gr.Chatbot()
+  message = gr.Textbox(placeholder=prompt)
+  state = gr.State()
+  submit = gr.Button("SEND")
+  submit.click(chat, inputs= [message, state], outputs=[chatbot, state])
+
+block.launch()
