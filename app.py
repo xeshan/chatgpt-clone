@@ -23,14 +23,14 @@ def openai_api(prompt):
 
   return response.choices[0].text
 
-  def chat(input, history):
-    history = history or []
-    gradio_state = list(sum(history, ()))
-    gradio_state.append(input)
-    inpt = ' '.join(gradio_state)
-    output = openai_create(inpt)
-    history.append((input, output))
-    return history, history
+def chat(input, history):
+  history = history or []
+  gradio_state = list(sum(history, ()))
+  gradio_state.append(input)
+  inpt = ' '.join(gradio_state)
+  output = openai_api(inpt)
+  history.append((input, output))
+  return history, history
 
 block = gr.Blocks()
 
@@ -42,4 +42,4 @@ with block:
   submit = gr.Button("SEND")
   submit.click(chat, inputs= [message, state], outputs=[chatbot, state])
 
-block.launch()
+block.launch(debug = True)
