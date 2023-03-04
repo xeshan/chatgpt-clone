@@ -36,3 +36,5 @@ def openai_api(prompt):
 
   with block:
     gr.Markdown("ChatGPT clone with OpenAI and Gradio")
+    chatbot = gr.Chatbot()
+    message = gr.Textbox(placeholder=prompt)
