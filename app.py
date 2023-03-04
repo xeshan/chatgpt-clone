@@ -1,5 +1,6 @@
 import os
 import openai
+import gradio as gr
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -24,9 +25,9 @@ def openai_api(prompt):
 
   def chat(input, history):
     history = history or []
-    s = list(sum(history, ()))
-    s.append(input)
-    inp = ' '.join(s)
-    output = openai_create(inp)
+    gradio_state = list(sum(history, ()))
+    gradio_state.append(input)
+    inpt = ' '.join(gradio_state)
+    output = openai_create(inpt)
     history.append((input, output))
     return history, history
