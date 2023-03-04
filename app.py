@@ -38,3 +38,5 @@ def openai_api(prompt):
     gr.Markdown("ChatGPT clone with OpenAI and Gradio")
     chatbot = gr.Chatbot()
     message = gr.Textbox(placeholder=prompt)
+    state = gr.State()
+    
