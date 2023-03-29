@@ -2,9 +2,11 @@
 
 # install required packages
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
 # run the app
 
-python app.py
+  export OPENAI_API_KEY=<open api key here>
+
+  python app.py
 
